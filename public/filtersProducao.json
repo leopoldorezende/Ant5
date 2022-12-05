@@ -1,0 +1,205 @@
+{
+  "id": "filtersProducao",
+  "filters": [
+    {
+      "name": "Dia",
+      "type": "date",
+      "position": "header",
+      "initial": false,
+      "items": [
+        { "value": "10/10/2023", "label": "day" }
+      ]
+    },
+    {
+      "name": "Período",
+      "type": "date",
+      "position": "header",
+      "initial": false,
+      "conditional": { "anchor": "Dia", "value": "11/10/2023" },
+      "conditionalNegative": true, 
+      "items": [
+        { "value": ["07/2023", "12/2023"], "label": "month" }
+      ]
+    },
+    {
+      "name": "Vista",
+      "type": "select",
+      "position": "drawer",
+      "initial": false,
+      "defaultItemIndex": 1,
+      "items": [
+        { "value": "*", "label": "Todos" },
+        { "value": "ME", "label": "Mercado"},
+        { "value": "LP", "label": "Linha de Produto" },
+        { "value": "RA", "label": "Rafael" }
+      ]
+    },
+    {
+      "name": "Unidade",
+      "type": "radio",
+      "position": "drawer",
+      "initial": false,
+      "defaultItemIndex": 0,
+      "items": [
+        { "value": "qtd", "label": "Qtd" },
+        { "value": "ton", "label": "Ton"}
+      ]
+    },
+    {
+      "name": "Produto",
+      "type": "select",
+      "position": "drawer",
+      "initial": false,
+      "defaultItemIndex": 0,
+      "items": [
+        { "value": "*",  "label": "Todos" },
+        { "value": "CG", "label": "Chapa Grossa"},
+        { "value": "LQ", "label": "Laminado a Quente" },
+        { "value": "LF", "label": "Laminado a Frio" }
+      ]
+    },
+    {
+      "name": "Localidade",
+      "type": "radio",
+      "position": "drawer",
+      "initial": false,
+      "defaultItemIndex": 0,
+      "conditional": { "anchor": "Produto", "value": "CG" },
+      "items": [
+        { "value": "*", "label": "Todas" },
+        { "value": "IPA", "label": "Ipa" },
+        { "value": "CUB", "label": "Cub" }
+      ]
+    },
+    {
+      "name": "Clientes",
+      "type": "tree",
+      "position": "drawer",
+      "conditional": { "anchor": "Localidade", "value": "*" },
+      "items": [
+        {
+          "label": "Todos",
+          "value": "*",
+          "children": [
+            {
+              "label": "Fiat",
+              "value": "0-0-0",
+              "children": [
+                { "label": "AA-0-0-0", "value": "0-0-0-0" },
+                { "label": "AA-0-0-1", "value": "0-0-0-1" },
+                { "label": "AA-0-0-2", "value": "0-0-0-2" }
+              ]
+            },
+            {
+              "label": "Ferranis",
+              "value": "0-3",
+              "children": [
+                {
+                  "label": "AA-3-0",
+                  "value": "0-3-0",
+                  "children": [
+                    { "label": "AA-3-0-0", "value": "0-3-0-0" },
+                    { "label": "AA-3-0-1", "value": "0-3-0-1" },
+                    { "label": "AA-3-0-2", "value": "0-3-0-2" }
+                  ]
+                },
+                {
+                  "label": "AA-3-1",
+                  "value": "0-3-1",
+                  "children": [
+                    { "label": "AA-3-1-0", "value": "0-3-1-0" },
+                    { "label": "AA-3-1-1", "value": "0-3-1-1" },
+                    { "label": "AA-3-1-2", "value": "0-3-1-2" }
+                  ]
+                },
+                {
+                  "label": "AA-3-2",
+                  "value": "0-3-2"
+                }
+              ]
+            },
+            {
+              "label": "BN Engenharia",
+              "value": "0-0-1",
+              "children": [
+                { "label": "AA-0-1-0", "value": "0-0-1-0" },
+                { "label": "AA-0-1-1", "value": "0-0-1-1" },
+                { "label": "AA-0-1-2", "value": "0-0-1-2" }
+              ]
+            },
+            {
+              "label": "Cyrela",
+              "value": "0-1",
+              "children": [
+                { "label": "AA-1-0-0", "value": "0-1-0-0" },
+                { "label": "AA-1-0-1", "value": "0-1-0-1" },
+                { "label": "AA-1-0-2", "value": "0-1-0-2" }
+              ]
+            },
+            {
+              "label": "Soluções Usiminas",
+              "value": "0-2"
+            },
+            {
+              "label": "Petrobras",
+              "value": "0-4",
+              "children": [
+                { "label": "AA-4-0-0", "value": "0-4-0-0" },
+                { "label": "AA-4-0-1", "value": "0-4-0-1" },
+                { "label": "AA-4-0-2", "value": "0-4-0-2" }
+              ]
+            },
+            {
+              "label": "ADEBRAS",
+              "value": "0-5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Equipamentos",
+      "type": "tree",
+      "position": "drawer",
+      "items": [
+        {
+          "label": "Todos",
+          "value": "*",
+          "children": [
+            {
+              "label": "Laminador",
+              "value": "0-0-0",
+              "children": [
+                { "label": "AA-0-0-0", "value": "0-0-0-0" },
+                { "label": "AA-0-0-1", "value": "0-0-0-1" },
+                { "label": "AA-0-0-2", "value": "0-0-0-2" }
+              ]
+            },
+            {
+              "label": "Conversor",
+              "value": "0-0-1",
+              "children": [
+                { "label": "AA-0-1-0", "value": "0-0-1-0" },
+                { "label": "AA-0-1-1", "value": "0-0-1-1" },
+                { "label": "AA-0-1-2", "value": "0-0-1-2" }
+              ]
+            },
+            {
+              "label": "Lingote",
+              "value": "0-1",
+              "children": [
+                { "label": "AA-1-0-0", "value": "0-1-0-0" },
+                { "label": "AA-1-0-1", "value": "0-1-0-1" },
+                { "label": "AA-1-0-2", "value": "0-1-0-2" }
+              ]
+            },
+            {
+              "label": "Enrolador",
+              "value": "0-2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

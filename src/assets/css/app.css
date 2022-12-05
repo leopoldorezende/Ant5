@@ -1,0 +1,290 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f0f2f5;
+}
+
+#root:empty,
+.page-loading {
+  position: absolute;
+  top: calc(50% - 2em);
+  left: calc(50% - 2em);
+  width: 3.5em;
+  height: 3.5em;
+  border: 0.2em solid rgba(128,128,128,.2);
+  border-left: 0.2em solid #0099FF;
+  border-radius: 50%;
+  animation: load8 .6s infinite linear;
+}
+@keyframes load8 {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+.page-loading-container {
+  position: relative;
+  height: 100vh;
+}
+.page-loading-container .page-loading {
+  border-left-color:rgba(0, 0, 0, 0.3);
+}
+
+/* THEME ADJUSTMENTS */
+.sidebar-content-theme {
+  background: #fff;
+  border-right: 1px solid #dfe5ea;
+}
+.layout-header,
+.ant-menu-submenu-popup {
+  background: #f0f2f5!important;
+}
+.ant-modal .ant-modal-content,
+.ant-drawer .ant-drawer-content {
+  background: #fff;
+}
+.ant-drawer .ant-drawer-content h5 {
+  color: rgba(0, 0, 0, 0.75);
+}
+.ant-tree-node-content-wrapper.ant-tree-node-selected, 
+.ant-tree-checkbox+span.ant-tree-node-selected {
+  background-color: rgba(5, 195, 255, .45)!important;
+}
+body[data-theme='dark'],
+body[data-theme='dark'] .layout-header,
+body[data-theme='dark'] .ant-menu-submenu-popup {
+  background: #1d1e1f!important;
+}
+body[data-theme='dark'] .sidebar-content-theme,
+body[data-theme='dark'] .ant-modal-content {
+  background: #262728;
+  border-right: 1px solid #323435;
+}
+body[data-theme='dark'] .ant-page-header-heading-title,
+body[data-theme='dark'] .ant-page-header-back-button,
+body[data-theme='dark'] .ant-drawer .ant-drawer-content h5 {
+  color: rgba(255, 255, 255, 0.85);
+}
+body[data-theme='dark'] .ant-drawer .ant-drawer-content {
+  background: #262728;
+}
+/* THEME ADJUSTMENTS DONE */
+
+.ant-modal-header {
+  background: transparent!important;
+}
+
+#root > .ant-layout {
+  opacity: 0;
+  animation: fadeAnimation .5s .1s forwards;
+}
+@keyframes fadeAnimation {
+  0% {opacity: 0} 100% {opacity: 1}
+} 
+.ant-layout .ant-layout-sider {
+  background: transparent;
+}
+.ant-layout .ant-layout-sider {
+  border-right: 1px solid rgba(128,128,128,.2)!important;
+}
+.layout-header {
+  position: -webkit-sticky!important;
+  position: sticky!important;
+  top: 0!important;
+  height: 80px!important;
+  padding: 0!important;
+  z-index: 900;
+}
+.layout-page-header {
+  padding: 20px 24px!important;
+  margin: 0;
+}
+.layout-page-header h5 {
+  display: none;
+}
+.sidebar-content {
+  position: fixed;
+  user-select: none;
+  left: 0;
+  top: 0;
+  z-index: 987;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+}
+.sidebar-content-scroll {
+  min-height: calc(100vh - 84px);
+}
+.sidebar-profile {
+  margin-bottom: 19px; 
+  text-align: center;
+  white-space: nowrap;
+}
+.sidebar-profile p {
+  font-size: .7rem;
+}
+.sidebar-content-footer {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  height: 64px;
+  padding: 20px 0;
+  margin-top: 20px;
+  text-align: center;
+  z-index: 1;
+}
+.sidebar-content-footer span.logo-light,
+.sidebar-content-footer span.logo-dark {
+  display: inline-block;
+  width: 35%;
+  height: 22px;
+  background-image: url('../img/logo-light.png');
+  background-position: right top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.sidebar-content-footer span.logo-dark {
+  background-image: url('../img/logo-dark.png');
+}
+.darkmode-switch {
+  position: relative;
+  display: block;
+  text-align:center;
+  margin: 0px auto 10px;
+  font-size: .7rem;
+  color: rgba(128,128,128,.8)!important;
+}
+.darkmode-switch button {
+  margin: -2px 0 0 6px;
+}
+.sidebar-content-user {
+  margin: 22px auto 8px auto;
+  text-align: center;
+}
+.layout-content-page {
+  min-height: 280; 
+  padding: 0 24px 24px 24px;
+}
+.more-filters-button {
+  margin-right: -15px;
+  border: 0!important;
+  background: transparent!important;
+  box-shadow: none!important;
+  font-size: 1rem!important; 
+}
+.close-drawer-button {
+  border: 0!important;
+  right: -15px;
+  box-shadow: none!important;
+}
+.layout-content-page-filtered {
+  color: grey;
+  font-size: .7rem;
+  text-align: left;
+  padding-bottom: 16px;
+}
+.layout-content-page-filtered svg {
+  position: relative;
+  top: 1px;
+}
+.layout-content-page .ant-breadcrumb li:last-child, 
+.layout-content-page .ant-breadcrumb li:last-child a {
+  color: grey!important;
+}
+body.hide-submenus .ant-menu-submenu-popup {
+  display: none!important;
+}
+.ant-menu-inline,
+.ant-menu-inline-collapsed {
+  border-right: 0!important;
+}
+#components-layout-demo-custom-trigger .trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.ant-menu {
+  background: transparent!important;
+}
+.ant-menu-sub.ant-menu-inline {
+  background-color: rgba(128,128,128,.05)!important;
+}
+.ant-menu-item .ant-menu-item-icon+span, 
+.ant-menu-item .anticon+span, 
+.ant-menu-submenu-title .ant-menu-item-icon+span, 
+.ant-menu-submenu-title .anticon+span,
+.ant-menu-submenu, 
+.ant-menu-submenu-inline,
+.ant-menu-inline.ant-menu-root .ant-menu-item, 
+.ant-menu-inline.ant-menu-root .ant-menu-submenu-title,
+.ant-menu-item .ant-menu-item-icon, 
+.ant-menu-item .anticon, 
+.ant-menu-submenu-title .ant-menu-item-icon, 
+.ant-menu-submenu-title .anticon
+{
+  transition: none!important;
+}
+.ant-layout-sider {
+  transition: all .2s!important;
+}
+.ant-card-body {
+  overflow-x: hidden;
+}
+.filters-moved {
+  margin-bottom: 14px;
+}
+.filters-moved,
+.filters-moved .ant-space-item {
+  width: 100%;
+}
+.ant-page-header .ant-space-item {
+  margin-left: -8px;
+}
+.filters-moved .ant-space-item > div {
+  width: 100%;
+}
+.ant-space {
+  display: flex;
+}
+.filter-drawer .ant-space-item {
+  max-width: 100%!important;
+}
+.filter-drawer .ant-drawer-body {
+  padding-top: 8px;
+}
+.filter-modal h5, 
+.filter-drawer h5 {
+  margin-bottom: 8px;
+}
+.ant-breadcrumb span {
+  position: relative;
+  top: 0px;
+  display: inline-block;
+  height: 15px;
+}
+.ant-breadcrumb b {
+  position: relative;
+  display: inline-block;
+  top: 2px;
+  max-width: 150px;
+  height: 15px;
+  white-space: nowrap;                  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.icon-filtered {
+  position: relative;
+  top: 2px!important;
+}

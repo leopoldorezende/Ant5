@@ -1,0 +1,66 @@
+{
+  "id": "filtersGeracaoAcabados",
+  "filters": [
+    {
+      "name": "Data",
+      "type": "date",
+      "position": "header",
+      "initial": false,
+      "items": [
+        { "value": "01/12/2022", "label": "day"}
+      ]
+    },
+    {
+      "name": "Vista",
+      "type": "select",
+      "position": "header",
+      "initial": true,
+      "conditional": { "anchor": "Unidade", "value": "qtd" },
+      "items": [
+        {"value": "me", "label": "Mercado"},
+        {"value": "lp", "label": "Linha de Produto" }
+      ]
+    },
+    {
+      "name": "Unidade",
+      "type": "radio",
+      "position": "header",
+      "initial": false,
+      "items": [
+        {"value": "qtd", "label": "Qtd" },
+        {"value": "ton", "label": "Ton"}
+      ]
+    },
+    {
+      "name": "Produtos",
+      "type": "select",
+      "position": "drawer",
+      "initial": true,
+      "items": [
+        {"value": "*",  "label": "Todos" },
+        {"value": "CG", "label": "Chapa Grossa"},
+        {"value": "LQ", "label": "Laminado a Quente" },
+        {"value": "LF", "label": "Laminado a Frio" }
+      ]
+    },
+    {
+      "name": "Planta",
+      "type": "radio",
+      "position": "drawer",
+      "initial": false,
+      "items": [
+        {"value": "ipa", "label": "Ipatinga" },
+        {"value": "cub", "label": "Cubatão" }
+      ]
+    },
+    {
+      "name": "Clientes",
+      "type": "treeview",
+      "position": "drawer",
+      "initial": false,
+      "items": [
+        {"value": "Clientes", "label": "Teste" }
+      ]
+    }
+  ]
+}
