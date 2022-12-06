@@ -1,12 +1,14 @@
+import React from 'react'
+import ResponsiveColumns from '../../../components/ResponsiveColumns'
 import { Card, Table } from 'antd'
 import type { ColumnsType } from 'antd/es/table'
-import React from 'react'
 
 interface DataType {
   key: React.Key;
   name: string;
   age: number;
   street: string;
+  block: string;
   building: string;
   number: number;
   companyAddress: string;
@@ -52,6 +54,9 @@ const columns: ColumnsType<DataType> = [
       },
       {
         title: 'Block',
+        key: 'block',
+        dataIndex: 'block',
+        width: 60,
         children: [
           {
             title: 'Building',
@@ -103,6 +108,7 @@ for (let i = 0; i < 100; i++) {
     name: 'John Brown',
     age: i + 1,
     street: 'Lake Park',
+    block: 'LEOPOLDO',
     building: 'C',
     number: 2035,
     companyAddress: 'Lake Street 42',
@@ -110,10 +116,11 @@ for (let i = 0; i < 100; i++) {
     action: 'M',
     children: [
       {
-        key: i+1000,
+        key: i + 1000,
         name: 'Leopoldo Rezende',
-        age: i + 1001,
+        age: i + 1000,
         street: 'Rua das Gaivotas',
+        block: 'LEOPOLDO',
         building: 'A',
         number: 109,
         companyAddress: 'Avenida do Lago',
@@ -121,10 +128,11 @@ for (let i = 0; i < 100; i++) {
         action: 'L',
       },
       {
-        key: i+1002,
+        key: i + 2000,
         name: 'Leopoldo Rezende',
-        age: i + 1002,
+        age: i + 2000,
         street: 'Rua das Gaivotas',
+        block: 'LEOPOLDO',
         building: 'A',
         number: 109,
         companyAddress: 'Avenida do Lago',
@@ -140,11 +148,11 @@ export default function Producao () {
   return (
     <Card title="Dados de Produção" bordered={true}>
       <Table
-        columns={columns}
+        columns={ResponsiveColumns(columns)}
         dataSource={data}
         bordered
         size="small"
-        scroll={{ x: 'calc(700px + 50%)', y: 240 }}
+        scroll={{ x: 'calc(700px + 50%)' }} //, y: 240 
       />
     </Card>
   )

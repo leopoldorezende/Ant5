@@ -8,6 +8,14 @@ body {
   background-color: #f0f2f5;
 }
 
+@media (max-width: 767px)
+{
+  .ant-table {
+    width: calc(100% + 48px);
+    margin-left: -24px!important;
+  }
+}
+
 #root:empty,
 .page-loading {
   position: absolute;

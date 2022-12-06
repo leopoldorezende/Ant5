@@ -4,7 +4,7 @@ interface states {
   theme: string;
   sidebarCollapsed: boolean;
   sidebarCollapsedMobile: boolean;
-  isMobile: boolean;
+  responsiveSize: string;
 
   [name: string]: any;
 }
@@ -15,7 +15,7 @@ export const storeInitialValues:states = {
   theme: 'light',
   sidebarCollapsed: false,
   sidebarCollapsedMobile: true,
-  isMobile: false,
+  responsiveSize: 'desktop',
   keepCloseInitialFilter: [],
 }
 
@@ -46,8 +46,8 @@ export const storeReducer = (state:states, action:{type: string, value?: any}) =
     case 'COLLAPSE_SIDEBAR_MOBILE':
       return {...state, sidebarCollapsedMobile: !state.sidebarCollapsedMobile};
     
-    case 'IS_MOBILE':
-      return {...state, isMobile: action.value};
+    case 'RESPONSIVE_SIZE':
+      return {...state, responsiveSize: action.value};
 
     case 'KEEP_CLOSE_INITIAL_FILTER':
       keepCloseInitialFilter.push(action.value)

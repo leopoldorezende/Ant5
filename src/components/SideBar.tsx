@@ -8,7 +8,7 @@ import Navigation from './Navigation'
 export default function SideBar () {  
 
   const { store, setStore } = React.useContext(StoreContext);
-  const collpased:boolean = store.sidebarCollapsed && !store.isMobile;
+  const collpased:boolean = store.sidebarCollapsed && store.responsiveSize != 'mobile';
   const changeTheme:string = store.theme == 'light' ? 'dark' : 'light'
 
   return (

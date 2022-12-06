@@ -19,6 +19,8 @@ export default function Page (props:Props) {
   const [ openFilters, setOpenFilters ] = React.useState(false);
   const [ filtersHeight, setFiltersHeight ] = React.useState(0);
   const { store, setStore } = React.useContext(StoreContext);
+  const isMobile = store.responsiveSize == 'mobile';
+
 
   const filtersList = props.selectedFilters && props.selectedFilters.length > 0 ? (
     <Space className='layout-content-page-filtered'>
@@ -55,20 +57,20 @@ export default function Page (props:Props) {
           title={props.title}
           className= 'layout-page-header'
           backIcon={
-            store.sidebarCollapsed || store.isMobile ? 
+            store.sidebarCollapsed || isMobile ? 
             <MenuUnfoldOutlined /> : <MenuFoldOutlined />
           }
           onBack={() => {
             document.body.classList.add('hide-submenus')
             setTimeout(() => {document.body.classList.remove('hide-submenus')}, 500)
             setStore(
-              {type: store.isMobile ? 'COLLAPSE_SIDEBAR_MOBILE' : 'COLLAPSE_SIDEBAR'}
+              {type: isMobile ? 'COLLAPSE_SIDEBAR_MOBILE' : 'COLLAPSE_SIDEBAR'}
             )
           }}
           extra={[
-            (!store.isMobile) ? <Space key={props.title}>{props.filtersHeader}</Space> : '',
+            (!isMobile) ? <Space key={props.title}>{props.filtersHeader}</Space> : '',
 
-            props.filtersDrawer || (store.isMobile && props.filtersHeader) ?
+            props.filtersDrawer || (isMobile && props.filtersHeader) ?
               <Button 
                 className='more-filters-button'
                 onClick={() => {setOpenFilters(true)}}
@@ -81,14 +83,14 @@ export default function Page (props:Props) {
       </Layout.Header > 
         
       {
-        props.filtersDrawer || (store.isMobile && props.filtersHeader) ?
+        props.filtersDrawer || (isMobile && props.filtersHeader) ?
           <FiltersDrawer 
             title={props.drawerTitle ?? 'Filtros'}
             open={openFilters} 
             setOpen={setOpenFilters}
           >
             <div>
-              {store.isMobile && props.filtersHeader ? 
+              {isMobile && props.filtersHeader ? 
                 <div className='filters-moved'>{props.filtersHeader}</div> : ''}
               {props.filtersDrawer}
             </div>

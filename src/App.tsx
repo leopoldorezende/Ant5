@@ -18,12 +18,15 @@ const App: React.FC = () => {
 
     document.body.setAttribute('data-theme', changeTheme );
     setStore({type: 'SWITCH_THEME', value: changeTheme })
+    
+    function setResponsiveSize() {
+      let w = window.innerWidth;
+      let deviceType:string = w < 768 ? 'mobile' : w < 992 ? 'tablet' : 'desktop'
 
-    function mobileResponsive() {
-      setStore({type: 'IS_MOBILE', value: window.innerWidth < 768 ? true : false})
+      setStore({type: 'RESPONSIVE_SIZE', value: deviceType})
     }
-    window.addEventListener('resize', mobileResponsive);
-    mobileResponsive();
+    window.addEventListener('resize', setResponsiveSize);
+    setResponsiveSize();
   }, []);
 
   return (
@@ -32,7 +35,7 @@ const App: React.FC = () => {
         <Router>
           <Layout>
             {
-              store.isMobile 
+              store.responsiveSize == 'mobile' 
               ? 
                 <Drawer
                   width={240}
