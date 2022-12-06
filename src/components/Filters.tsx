@@ -117,7 +117,7 @@ export default function Filters(props:Props) {
       if(el.position == position) {
         components.push(filterFieldComponent);
       }
-      if(position == 'header' && el.initial == true) {
+      if(el.initial == true && position == 'header') {
         initialComponents.push(filterFieldComponent);
 
         React.useEffect(() => {
